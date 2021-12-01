@@ -9,6 +9,28 @@
  *    
  *    AP:  Worked on add / enqueue, stubbed in menu methods
 
+Done:
+   Console output for Main Menu
+   Patient Class
+
+ToDo:
+   ERQueue:  
+      overrride to String
+      List Function
+      Enqueu
+      Dequeu
+
+   Menu
+      Update to run code
+
+
+ToDO:
+   Create node class for holding Patient objects
+      ie: 1 patient per node; these are the building blocks for the linked list Class:ERQueue
+Node Class:  Has an instance variable that holds the data (Patient instance); 
+   Do we want pervious & Next nodes?  Group:  Let's start with just the next node
+
+Console Output
 */
 
 
@@ -27,6 +49,7 @@ namespace MedicalQueue_Team2
          
          bool IsRunning = true;
          string User_Input;
+         ERQueue ourEQ = new ERQueue();
 
             do
             {
@@ -34,7 +57,7 @@ namespace MedicalQueue_Team2
                 "(P)rocess Current Patient " +
                 "(L)ist All in Queue " +
                 "(Q)uit\n");
-                User_Input = Console.ReadLine();
+                User_Input = Console.ReadLine().ToUpper();
 
                 switch (User_Input)
                 {
@@ -56,8 +79,9 @@ namespace MedicalQueue_Team2
                         Console.Write("\nPress any key to continue...");
                         Console.ReadKey();
                         Console.Clear();
+                  ourEQ.listL();
                   // listL();
-                        break;
+                  break;
 
                     case "Q":
                         Console.Clear();
@@ -82,25 +106,11 @@ namespace MedicalQueue_Team2
          string last = new string("Smith");
          int priority = 0;
 
-         this.ourEQ.Enqueue((new Patient(first, last, priority)), priority);
-         this.currentCount = this.ourEQ.Count;
-         return this.currentCount;
+         Patient patient = new Patient(first, last, priority);
+
+         // Update this
 
       }
-
-      public void processPatient()
-      {  
-         ourEQ.Dequeue();
-         // Probably need to capture the return and send it to console as a string - using overloaded toString function in EQ.
-      }
-
-      public void ListL()
-      { 
-         // Do you want the function to return a list and print here, or have the function print?
-         ourEQ.list();
-
-      }
-
 
       }
    }

@@ -9,6 +9,7 @@ Assignment: Patients are added to the queue with two pieces of information:
 
 Notes:
 	Andrea:  Since it is a read-only class, do you think we need the setters?
+	Group:  No - remove the setters.
 
 */
 
@@ -39,14 +40,22 @@ namespace MedicalQueue_Team2
 			this.priority = priority;
 		}
 
-		public string getFirst() { return (this.first); }
-		public void setFirst(string first) { this.first = first; }
+
+      public override string ToString()
+      {
+			//	Return [ First ] [ priority] as a string
+         return base.ToString();
+      }
+
+
+      public string getFirst() { return (this.first); }
+		// public void setFirst(string first) { this.first = first; }
 
 		public string getLast() { return this.last; }
-		public void setLast(string last) { this.last = last; }
+		// public void setLast(string last) { this.last = last; }
 
 		public int getPriority() { return this.priority; }
-		public void setPriority(int priority) { this.priority = priority; }
+		// public void setPriority(int priority) { this.priority = priority; }
 
 
 
