@@ -19,11 +19,14 @@ namespace MedicalQueue_Team2
 {
     class Program
     {
-        static void Main(string[] args)
-        {
+      ERQueue ourEQ = new ERQueue();
+      private int currentCount = 0;
 
-            bool IsRunning = true;
-            string User_Input;
+      static void Main(string[] args)
+        {
+         
+         bool IsRunning = true;
+         string User_Input;
 
             do
             {
@@ -36,9 +39,10 @@ namespace MedicalQueue_Team2
                 switch (User_Input)
                 {
                     case "A":
-                        Console.Write("\nPress any key to continue...");
-                        Console.ReadKey();
-                        Console.Clear();
+                     Console.Write("\nPress any key to continue...");
+                     Console.ReadKey();
+                     Console.Clear();
+                  // addPatient();
                         break;
 
                     case "P":
@@ -68,27 +72,28 @@ namespace MedicalQueue_Team2
             } while (IsRunning == true);
         }
 
-      public int Enqueue(Patient patient)
-      {  //returns number of patients in the queue after adding
+// TODO:  prompt for patient info
+      public int addPatient()
+      {//returns number of patients in the queue after adding
 
+         string first = new string("Mary");
+         string last = new string("Smith");
+         int priority = 0;
 
-         ourEQ.Enqueue(patient, patient.getPriority());
-         currentCount = this.ourEQ.Count;
+         this.ourEQ.Enqueue((new Patient(first, last, priority)), priority);
+         this.currentCount = this.ourEQ.Count;
          return this.currentCount;
+
       }
 
-      //public Patient Dequeue()
-      //{  // returns a queue item which should be shown to the user
-
-         // return (ourEQ.Dequeue)
-      //}
+      public Patient process()
+      {  // returns a queue item which should be shown to the user
+         return ourEQ.Dequeue();
+      }
 
       //public List ListL()
       //{  // Returns a list of users/priorities and their position in the queue }
 
-      public override string ToString()
-      {  // ToString: Override ToString() to generate a string with the queue in order[  Sue 1] [Dan 2] [Mary 2] [Bob 4] [Jim 5]
-         return base.ToString();
+
       }
    }
-}
