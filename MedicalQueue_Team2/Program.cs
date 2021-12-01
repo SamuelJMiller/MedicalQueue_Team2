@@ -18,7 +18,51 @@ namespace MedicalQueue_Team2
     {
         static void Main(string[] args)
         {
-            
+
+            bool IsRunning = true;
+            string User_Input;
+
+            do
+            {
+                Console.Write("(A)dd patient " +
+                "(P)rocess Current Patient " +
+                "(L)ist All in Queue " +
+                "(Q)uit\n");
+                User_Input = Console.ReadLine();
+
+                switch (User_Input)
+                {
+                    case "A":
+                        Console.Write("\nPress any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+
+                    case "P":
+                        Console.Write("\nPress any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+
+                    case "L":
+                        Console.Write("\nPress any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+
+                    case "Q":
+                        Console.Clear();
+                        Console.Write("Program closed");
+                        IsRunning = false;
+                        break;
+
+                    default:
+                        Console.Clear();
+                        Console.Write("ERROR\n");
+                        break;
+                }
+
+            } while (IsRunning == true);
         }
 
       public int Enqueue()
