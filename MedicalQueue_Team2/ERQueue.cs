@@ -5,14 +5,35 @@ using System.Collections.Generic;
 // from assignment: You will be simulating an emergency room queue by writing a class called ERQueue.
 namespace MedicalQueue_Team2
 {
-	public class ERQueue : PriorityQueue<Patient, int>
+	public class ERQueue
 	{
 
-		public List list()
-      {
-			return list;
-      }
+		private Node _head;
 
+		public Node Head
+        {
+			get { return _head; }
+			set { _head = value; }
+        }
+
+		public int Enqueue(Patient p)
+        {
+			return 0;
+        }
+
+		public Patient Dequeue()
+        {
+
+        }
+
+		public string List()
+        {
+			string final = string.Emtpy;
+
+
+
+			return final;
+        }
 
 
 		public override string ToString()

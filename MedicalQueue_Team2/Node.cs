@@ -9,19 +9,19 @@ namespace MedicalQueue_Team2
    class Node
    {
 
-      Node Next, myNode;
-;      
-      myNode = new Node();
+        private Patient _data;
+        private Node _next;
 
-      myNode()
+      public myNode(Patient p)
       {
-         this.Next = new Node(Patient patient);
-         this.add(new Patient(string first, string last, int priority));
-         this
-
+            _data = p;
       }
 
-
+      public Patient Next
+        {
+            get { return _next; }
+            set { _next = value; }
+        }
 
    }
 }
