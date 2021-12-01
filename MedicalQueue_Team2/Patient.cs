@@ -37,16 +37,19 @@ public class Patient
 		this.priority = priority;
    }
 
-   getFirst() { return(this.first) }
+	public string getFirst() 
+	{
+		return this.first;
+	}
 
-   setFirst(string first) { this.first = first; }
+	public string getLast()
+	{
+		return this.last;
+	}
 
-   getLast() {	return this.last;	}
-
-	setLast(string last) { this.last = last; }
-
-   setPriority(int priority) { this.priority = priority; }
-
-	getPriority() { return this.priority}
+	public int getPriority() 
+	{
+		return this.priority;	
+	}
 
 }
