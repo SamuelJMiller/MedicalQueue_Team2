@@ -7,7 +7,7 @@
  *    ListL Returns a list of users/priorities and their position in the queue
  *    ToString: Override ToString() to generate a string with the queue in order[  Sue 1] [Dan 2] [Mary 2] [Bob 4] [Jim 5]
  *    
- *    AP:  Worked on Enqueue()
+ *    AP:  Worked on add / enqueue, stubbed in menu methods
 
 */
 
@@ -49,12 +49,14 @@ namespace MedicalQueue_Team2
                         Console.Write("\nPress any key to continue...");
                         Console.ReadKey();
                         Console.Clear();
+                  // processPatient();
                         break;
 
                     case "L":
                         Console.Write("\nPress any key to continue...");
                         Console.ReadKey();
                         Console.Clear();
+                  // listL();
                         break;
 
                     case "Q":
@@ -86,13 +88,18 @@ namespace MedicalQueue_Team2
 
       }
 
-      public Patient process()
-      {  // returns a queue item which should be shown to the user
-         return ourEQ.Dequeue();
+      public void processPatient()
+      {  
+         ourEQ.Dequeue();
+         // Probably need to capture the return and send it to console as a string - using overloaded toString function in EQ.
       }
 
-      //public List ListL()
-      //{  // Returns a list of users/priorities and their position in the queue }
+      public void ListL()
+      { 
+         // Do you want the function to return a list and print here, or have the function print?
+         ourEQ.list();
+
+      }
 
 
       }
