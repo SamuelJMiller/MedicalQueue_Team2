@@ -28,7 +28,7 @@ namespace MedicalQueue_Team2
 
       static void Main(string[] args)
       {
-         ourEQ = new ERQueue();
+         // ourEQ = new ERQueue();
          //  Add some test patients -AP
          // (new Patient("Bob", "Villa", 3));
          // (new Patient("Sally", "Ride", 2));
