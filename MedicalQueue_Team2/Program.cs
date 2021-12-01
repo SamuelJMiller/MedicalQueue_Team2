@@ -17,23 +17,56 @@ using System.Collections;
 
 namespace MedicalQueue_Team2
 {
-   class Program
-   {
+    class Program
+    {
+        static void Main(string[] args)
+        {
 
-      // Not sure about protection level - going for the concept of least privledges
+            bool IsRunning = true;
+            string User_Input;
 
-      private ERQueue ourEQ;
-      private int currentCount;
-      private Patient patient;
+            do
+            {
+                Console.Write("(A)dd patient " +
+                "(P)rocess Current Patient " +
+                "(L)ist All in Queue " +
+                "(Q)uit\n");
+                User_Input = Console.ReadLine();
 
-      static void Main(string[] args)
-      {
-         // ourEQ = new ERQueue();
-         //  Add some test patients -AP
-         // (new Patient("Bob", "Villa", 3));
-         // (new Patient("Sally", "Ride", 2));
+                switch (User_Input)
+                {
+                    case "A":
+                        Console.Write("\nPress any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
 
-      }
+                    case "P":
+                        Console.Write("\nPress any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+
+                    case "L":
+                        Console.Write("\nPress any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+
+                    case "Q":
+                        Console.Clear();
+                        Console.Write("Program closed");
+                        IsRunning = false;
+                        break;
+
+                    default:
+                        Console.Clear();
+                        Console.Write("ERROR\n");
+                        break;
+                }
+
+            } while (IsRunning == true);
+        }
 
       public int Enqueue(Patient patient)
       {  //returns number of patients in the queue after adding
