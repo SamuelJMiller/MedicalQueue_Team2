@@ -13,40 +13,42 @@ Notes:
 */
 
 using System;
-
-public class Patient
+namespace MedicalQueue_Team2
 {
-	public int ID;
 
-	private string first;
-	private string last;
-	private int priority;
-
-
-	public Patient()
+	public class Patient
 	{
-		this.first = "";
-		this.last = "";
-		this.priority = 0;
+		public int ID;
+
+		private string first;
+		private string last;
+		private int priority;
+
+
+		public Patient()
+		{
+			this.first = "";
+			this.last = "";
+			this.priority = 0;
+		}
+
+		public Patient(string first, string last, int priority)
+		{
+			this.first = first;
+			this.last = last;
+			this.priority = priority;
+		}
+
+		public string getFirst() { return (this.first); }
+		public void setFirst(string first) { this.first = first; }
+
+		public string getLast() { return this.last; }
+		public void setLast(string last) { this.last = last; }
+
+		public int getPriority() { return this.priority; }
+		public void setPriority(int priority) { this.priority = priority; }
+
+
+
 	}
-
-	public Patient(string first, string last, int priority)
-   {
-		this.first = first;
-		this.last = last;
-		this.priority = priority;
-   }
-
-   getFirst() { return(this.first) }
-
-   setFirst(string first) { this.first = first; }
-
-   getLast() {	return this.last;	}
-
-	setLast(string last) { this.last = last; }
-
-   setPriority(int priority) { this.priority = priority; }
-
-	getPriority() { return this.priority}
-
 }

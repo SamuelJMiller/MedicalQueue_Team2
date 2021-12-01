@@ -1,8 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 
-public class Class1
+
+// AP - not sure we need this
+namespace MedicalQueue_Team2
 {
-	public Class1()
+	public class ERQueue : PriorityQueue<Patient, int>
 	{
+
+		public ERQueue()
+		{
+
+		}
 	}
 }
