@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 
 // from assignment: You will be simulating an emergency room queue by writing a class called ERQueue.
@@ -10,7 +11,12 @@ namespace MedicalQueue_Team2
 
 		private Node _head;
 		private Node _current;
+		
+		// AP	Created Node<Patient>
+		//private Patient _head;
+		//private Patient _current;
 		private Patient _patient;
+		
 
 		//Created the Next variable in Node which should start at the head when caling it. - Jordan 
 
@@ -33,11 +39,20 @@ namespace MedicalQueue_Team2
 		// Now this was only to test my Dequeue method. Now what we could do to improve this is looking at the priority value and then inserting that node.
 		// That way the highest priority is pulled first. Any thoughts? - Jordan 
 
+// What do you think about a linked list for each priority?  BigContainer = Q1( ["Bob  1], ["Mary  1"] ); Q2( ["Joe 2"], ["David 2] ), etc
+// when dequeuing:
+//	if Q1 has a patient
+//		pull patients from Q1 until empty;
+// if Q1 still empty, 
+//		pull a paitent from Q2;
+//		if Q1 is still empty, pull another from Q2, etc
+
 		public int Enqueue(Patient p)
         {
 			// SAM'S CODE
 
 			Node newNode = new Node(p);
+			//Patient newNode = new Patient();
 			int nodeCount = 0; // Will carry number of nodes which will be returned at the end
 
 			// If no nodes, set the added node as the _head
@@ -149,21 +164,32 @@ namespace MedicalQueue_Team2
             }
         }
 
-		public string List()
-        {
-			string final = string.Empty;
-
-
-
-			return final;
-        }
-
-
 		public override string ToString()
 		{  // ToString: Override ToString() to generate a string with the queue in order[  Sue 1] [Dan 2] [Mary 2] [Bob 4] [Jim 5]
-			return base.ToString();
+			_current = _head;
 
+			if (_head == null) { return ""; };
+			String strReturn = new String(_head.ToString());
+
+			if (_head.Next == null) { return strReturn; };
+			_current = _head.Next;
+
+			strReturn = strReturn + "\n" + _current.ToString();
+
+			while (_current.Next != null)
+			{
+				strReturn = _current.ToString();
+				_current = _current.Next;
+			}
+
+			return strReturn;
 		}
+
+		public void loadData()
+      {
+			// Loadup some data for testing
+			fakeData fakeData = new fakeData(this);
+      }
 
 	}
 }

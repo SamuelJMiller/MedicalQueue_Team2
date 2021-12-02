@@ -19,8 +19,6 @@ namespace MedicalQueue_Team2
 
 	public class Patient
 	{
-		public int ID;
-
 		private string first;
 		private string last;
 		private int priority;
@@ -40,11 +38,9 @@ namespace MedicalQueue_Team2
 			this.priority = priority;
 		}
 
-
       public override string ToString()
       {
-			//	Return [ First ] [ priority] as a string
-         return base.ToString();
+         return (first + "   " + priority.ToString());
       }
 
 

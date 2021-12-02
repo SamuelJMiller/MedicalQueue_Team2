@@ -64,10 +64,10 @@ namespace MedicalQueue_Team2
 
             do
             {
-                Console.Write("(A)dd patient " +
-                "(P)rocess Current Patient " +
-                "(L)ist All in Queue " +
-                "(Q)uit\n");
+            Console.Write("(A)dd patient " +
+            "(P)rocess Current Patient " +
+            "(L)ist All in Queue " +
+            "(Q)uit\n" + "load (T)est data\n");
                 User_Input = Console.ReadLine().ToUpper();
 
                 switch (User_Input)
@@ -92,6 +92,8 @@ namespace MedicalQueue_Team2
                         priority = Int32.Parse(Console.ReadLine()); // Assuming correct input :)
 
                         Patient newPatient = new Patient(first, last, priority);
+                        // AP - Testing Enqueue
+                        //ourEQ.Enqueue(new Patient(first, last, priority));
 
                         wr();
                         wr("Added patient " + first + ", there are now " + ourEQ.Enqueue(newPatient) + " patient(s) in the queue.");
@@ -132,7 +134,8 @@ namespace MedicalQueue_Team2
                         Console.Write("\nPress any key to continue...");
                         Console.ReadKey();
                         Console.Clear();
-                  //ourEQ.listL(); // I only commented this out to test my Dequeue method - Jordan
+                     Console.WriteLine("debug:");
+                        Console.WriteLine(ourEQ.ToString()); // I only commented this out to test my Dequeue method - Jordan
                   // listL();
                   break;
 
@@ -142,7 +145,13 @@ namespace MedicalQueue_Team2
                         IsRunning = false;
                         break;
 
-                    default:
+               case "T":      // Load fake data
+                  Console.Clear();
+                  ourEQ.loadData();
+                  Console.Write("Data Loaded For Testing \n");
+                  break;
+
+               default:
                         Console.Clear();
                         Console.Write("ERROR\n");
                         break;
