@@ -63,15 +63,33 @@ namespace MedicalQueue_Team2
                 {
                     case "A":
                      Console.Write("\nPress any key to continue...");
+
                      Console.ReadKey();
                      Console.Clear();
-                  // addPatient();
+
+                        // Adding Patient 1 for Dequeue Test; -Jordan
+                        string first = new string("Mary");
+                        string last = new string("Smith");
+                        int priority = 0;
+                        Patient patient = new Patient(first, last, priority);
+                        Console.WriteLine(ourEQ.Enqueue(patient));
+
+                        // Adding Patient 2 for Dequeue Test; - Jordan
+                        first = "Jordan";
+                        last = "Martin";
+                        patient = new Patient(first, last, priority);
+                        Console.WriteLine(ourEQ.Enqueue(patient));
+                        // addPatient();
                         break;
 
                     case "P":
                         Console.Write("\nPress any key to continue...");
                         Console.ReadKey();
                         Console.Clear();
+
+                        // Console writing line to see the first names for each person to verify the Dequeue is working properly. -Jordan
+
+                        Console.WriteLine(ourEQ.Dequeue().getFirst());
                   // processPatient();
                         break;
 
@@ -79,7 +97,7 @@ namespace MedicalQueue_Team2
                         Console.Write("\nPress any key to continue...");
                         Console.ReadKey();
                         Console.Clear();
-                  ourEQ.listL();
+                  //ourEQ.listL(); // I only commented this out to test my Dequeue method - Jordan
                   // listL();
                   break;
 
@@ -99,18 +117,19 @@ namespace MedicalQueue_Team2
         }
 
 // TODO:  prompt for patient info
-      public int addPatient()
-      {//returns number of patients in the queue after adding
+// Commented out only temp to see it compile and test my dequeue - Jordan M      
+        //public int addPatient()
+      //{//returns number of patients in the queue after adding
 
-         string first = new string("Mary");
-         string last = new string("Smith");
-         int priority = 0;
+      //   string first = new string("Mary");
+      //   string last = new string("Smith");
+      //   int priority = 0;
 
-         Patient patient = new Patient(first, last, priority);
+      //   Patient patient = new Patient(first, last, priority);
 
-         // Update this
+      //   // Update this
 
-      }
+      //}
 
       }
    }
