@@ -29,29 +29,87 @@ namespace MedicalQueue_Team2
 
 		public int Enqueue(Patient p)
         {
-			Node createNode = new Node(p);
+			// SAM'S CODE
 
-			if(_head == null)
+			Node newNode = new Node(p);
+			int nodeCount = 0; // Will carry number of nodes which will be returned at the end
+
+			// If no nodes, set the added node as the _head
+			if (_head == null)
             {
-				_head = createNode;
-				return 0;
-			}
-
-			_current = _head;
-
-			while (_current != null)
-			{
-				if (_current.Next == null)
-				{
-					_current.Next = createNode;
-					break;
+				_head = newNode;
+				return 1; // In this case there is only one node
+            }
+			else
+            {
+				// If the new node has a higher priority than the head (lower number), set it as the head and set its _next to the old head
+				if (p.getPriority() < _head.grabData.getPriority())
+                {
+					newNode.Next = _head;
+					_head = newNode;
 				}
+				// Otherwise assume there is a _head and that the new node belongs behind it
 				else
 				{
-					_current = _current.Next;
-				}
-			}
-			return 0;
+					_current = _head;
+
+					// Check each node
+					while ( _current != null )
+                    {
+						if (_current.Next != null)
+                        {
+							// Check this node to see if  it's the right place for the new node;
+							// if the _current data has a higher or equal priority (less than or equal number)
+							// and the node after it has a lower priority (higher number),
+							// then insert the new node in this location
+							if (_current.grabData.getPriority() <= p.getPriority()
+							 && _current.Next.grabData.getPriority() > p.getPriority())
+							{
+								newNode.Next = _current.Next; // Connect new node to rest of list
+								_current.Next = newNode;      // Connect _current and any previous nodes to the new node and the rest of the list
+								break;
+							} else
+                            {
+								_current = _current.Next; // Get next node in chain
+							}
+                        }
+						// Else put the new node at the end
+						else
+                        {
+							_current.Next = newNode;
+							break;
+                        }
+                    }
+                }
+
+				return nodeCount;
+            }
+
+			// JORDAN'S CODE
+
+			//Node createNode = new Node(p);
+
+			//if(_head == null)
+   //         {
+			//	_head = createNode;
+			//	return 0;
+			//}
+
+			//_current = _head;
+
+			//while (_current != null)
+			//{
+			//	if (_current.Next == null)
+			//	{
+			//		_current.Next = createNode;
+			//		break;
+			//	}
+			//	else
+			//	{
+			//		_current = _current.Next;
+			//	}
+			//}
+			//return 0;
         }
 
 		// Dequeue works - Jordan
