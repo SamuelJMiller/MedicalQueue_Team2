@@ -3,10 +3,18 @@
 *	ERQueue Class
 *	
 *	Done:
-*		AP: 12/2 - added ToString, iterates trhough note list and appends patient.ToString() results
+*	   Dequeue works - Jordan
+*	   Created the Next variable in Node which should start at the head when caling it. - Jordan 
+*		Tested Enqueu with fakedata - working - AP
+*		added ToString, iterates trhough note list and appends patient.ToString() results - AP
+*		
+*		working on:
+*			ERQueue.Enqueue() -SAM
+*	
 *		
 *	assignment notes:  You will be simulating an emergency room queue by writing a class called ERQueue.
 *		The queue will enqueue on demand by menu-driven  user input and will dequeue based on the highest prioity patient in the queue.
+*		ToString: Override ToString() to generate a string with the queue in order[  Sue 1] [Dan 2] [Mary 2] [Bob 4] [Jim 5]
 */
 
 using System;
@@ -25,16 +33,6 @@ namespace MedicalQueue_Team2
 
 		private Patient _patient;
 		
-
-		//Created the Next variable in Node which should start at the head when caling it. - Jordan 
-
-		//public Node Head
-		//      {
-		//	get { return _head; }
-		//	set { _head = value; }
-		//      }
-
-
 		// Simple method to check and see if there is another element in the list.
 		public bool Peek()
         {
@@ -44,14 +42,7 @@ namespace MedicalQueue_Team2
 
 		// Now this was only to test my Dequeue method. Now what we could do to improve this is looking at the priority value and then inserting that node.
 		// That way the highest priority is pulled first. Any thoughts? - Jordan 
-
-// What do you think about a linked list for each priority?  BigContainer = Q1( ["Bob  1], ["Mary  1"] ); Q2( ["Joe 2"], ["David 2] ), etc
-// when dequeuing:
-//	if Q1 has a patient
-//		pull patients from Q1 until empty;
-// if Q1 still empty, 
-//		pull a paitent from Q2;
-//		if Q1 is still empty, pull another from Q2, etc
+		// Sam & Andrea:  Same is working on the priority in Enqueue / Dequeue
 
 		public int Enqueue(Patient p)
         {
@@ -124,35 +115,8 @@ namespace MedicalQueue_Team2
 						break;
                     }
                 }
-
 				return nodeCount;
             }
-
-			// JORDAN'S CODE
-
-			//Node createNode = new Node(p);
-
-			//if(_head == null)
-   //         {
-			//	_head = createNode;
-			//	return 0;
-			//}
-
-			//_current = _head;
-
-			//while (_current != null)
-			//{
-			//	if (_current.Next == null)
-			//	{
-			//		_current.Next = createNode;
-			//		break;
-			//	}
-			//	else
-			//	{
-			//		_current = _current.Next;
-			//	}
-			//}
-			//return 0;
         }
 
 		// Dequeue works - Jordan
@@ -163,19 +127,19 @@ namespace MedicalQueue_Team2
 				_patient = _head.grabData;
 				_head = _head.Next;
 				return _patient;
-            }
-			else
-            {
+          }	else {
 				return null;
-            }
+          }
         }
 
 		public override string ToString()
-		{  // ToString: Override ToString() to generate a string with the queue in order[  Sue 1] [Dan 2] [Mary 2] [Bob 4] [Jim 5]
+		{
 			_current = _head;
+			String strReturn = new string("");
 
-			if (_head == null) { return ""; };
-			String strReturn = new String(_head.ToString());
+			if (_head == null) { return strReturn; };
+
+			strReturn = _head.grabData.ToString();
 
 			if (_head.Next == null) { return strReturn; };
 			_current = _head.Next;
@@ -184,7 +148,7 @@ namespace MedicalQueue_Team2
 
 			while (_current.Next != null)
 			{
-				strReturn = _current.ToString();
+				strReturn = strReturn + "\n" + _current.grabData.ToString();
 				_current = _current.Next;
 			}
 

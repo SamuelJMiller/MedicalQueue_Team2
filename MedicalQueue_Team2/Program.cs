@@ -102,20 +102,20 @@ namespace MedicalQueue_Team2
                break;
 
             case "L":
-               Console.Write("\nPress any key to continue...");
+               Console.Write("Press any key to continue...");
                Console.ReadKey();
                Console.Clear();
-               Console.WriteLine("debug:");
                Console.WriteLine(ourEQ.ToString()); // I only commented this out to test my Dequeue method - Jordan
                break;
 
             case "P":
-               Console.Write("\nPress any key to continue...");
+               Console.Write("Press any key to continue...");
                Console.ReadKey();
                Console.Clear();
-               // Console writing line to see the first names for each person to verify the Dequeue is working properly. -Jordan
-               Console.WriteLine(ourEQ.Dequeue().getFirst());
-               break;
+                  // Console writing line to see the first names for each person to verify the Dequeue is working properly. -Jordan
+                  // AP - update when return ToString output fixed
+                  Console.WriteLine(ourEQ.Dequeue().getFirst() + "\n");
+                  break;
 
             case "Q":
                Console.Clear();

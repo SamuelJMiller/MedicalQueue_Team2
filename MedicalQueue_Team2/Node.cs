@@ -39,5 +39,9 @@ namespace MedicalQueue_Team2
             set { _next = value; }
         }
 
+      public override string ToString()
+      {
+         return _data.ToString();
+      }
    }
 }
