@@ -41,6 +41,17 @@ namespace MedicalQueue_Team2
 {
     class Program
     {
+        // Some methods to make our lives easier :)
+        public static void wr()
+        {
+            Console.WriteLine();
+        }
+
+        public static void wr(string s)
+        {
+            Console.WriteLine(s);
+        }
+
       ERQueue ourEQ = new ERQueue();
       private int currentCount = 0;
 
@@ -62,24 +73,26 @@ namespace MedicalQueue_Team2
                 switch (User_Input)
                 {
                     case "A":
-                     Console.Write("\nPress any key to continue...");
+                        wr("in add case!");
 
-                     Console.ReadKey();
-                     Console.Clear();
+                     //Console.Write("\nPress any key to continue...");
 
-                        // Adding Patient 1 for Dequeue Test; -Jordan
-                        string first = new string("Mary");
-                        string last = new string("Smith");
-                        int priority = 0;
-                        Patient patient = new Patient(first, last, priority);
-                        Console.WriteLine(ourEQ.Enqueue(patient));
+                     //Console.ReadKey();
+                     //Console.Clear();
 
-                        // Adding Patient 2 for Dequeue Test; - Jordan
-                        first = "Jordan";
-                        last = "Martin";
-                        patient = new Patient(first, last, priority);
-                        Console.WriteLine(ourEQ.Enqueue(patient));
-                        // addPatient();
+                     //   // Adding Patient 1 for Dequeue Test; -Jordan
+                     //   string first = new string("Mary");
+                     //   string last = new string("Smith");
+                     //   int priority = 0;
+                     //   Patient patient = new Patient(first, last, priority);
+                     //   Console.WriteLine(ourEQ.Enqueue(patient));
+
+                     //   // Adding Patient 2 for Dequeue Test; - Jordan
+                     //   first = "Jordan";
+                     //   last = "Martin";
+                     //   patient = new Patient(first, last, priority);
+                     //   Console.WriteLine(ourEQ.Enqueue(patient));
+                     //   // addPatient();
                         break;
 
                     case "P":

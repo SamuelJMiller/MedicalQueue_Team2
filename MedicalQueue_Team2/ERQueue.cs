@@ -56,6 +56,7 @@ namespace MedicalQueue_Team2
 					// Check each node
 					while ( _current != null )
                     {
+						// If there is more than one node, check the list to find the right spot
 						if (_current.Next != null)
                         {
 							// Check this node to see if  it's the right place for the new node;
@@ -73,12 +74,27 @@ namespace MedicalQueue_Team2
 								_current = _current.Next; // Get next node in chain
 							}
                         }
-						// Else put the new node at the end
+						// Otherwise if no match is found, put the new node at the end of the list
 						else
                         {
 							_current.Next = newNode;
 							break;
                         }
+                    }
+                }
+
+				// Now count the nodes
+				_current = _head;
+
+				while ( _current != null )
+                {
+					++nodeCount;
+					if (_current.Next != null)
+                    {
+						_current = _current.Next;
+                    } else
+                    {
+						break;
                     }
                 }
 
