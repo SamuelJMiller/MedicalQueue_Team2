@@ -23,6 +23,12 @@ namespace MedicalQueue_Team2
 		// Canvas : The queue will enqueue on demand by menu-driven  user input,
 		// and will dequeue based on the highest prioity patient in the queue.
 
+		// Simple method to check and see if there is another element in the list.
+		public bool Peek()
+        {
+			return _head != null;
+        }
+
 
 		// Now this was only to test my Dequeue method. Now what we could do to improve this is looking at the priority value and then inserting that node.
 		// That way the highest priority is pulled first. Any thoughts? - Jordan 
