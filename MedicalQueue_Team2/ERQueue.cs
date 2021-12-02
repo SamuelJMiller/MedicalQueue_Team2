@@ -1,9 +1,20 @@
-﻿using System;
+﻿/*
+*	MedicalQueue_Team2
+*	ERQueue Class
+*	
+*	Done:
+*		AP: 12/2 - added ToString, iterates trhough note list and appends patient.ToString() results
+*		
+*	assignment notes:  You will be simulating an emergency room queue by writing a class called ERQueue.
+*		The queue will enqueue on demand by menu-driven  user input and will dequeue based on the highest prioity patient in the queue.
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 
-// from assignment: You will be simulating an emergency room queue by writing a class called ERQueue.
+
 namespace MedicalQueue_Team2
 {
 	public class ERQueue
@@ -11,10 +22,7 @@ namespace MedicalQueue_Team2
 
 		private Node _head;
 		private Node _current;
-		
-		// AP	Created Node<Patient>
-		//private Patient _head;
-		//private Patient _current;
+
 		private Patient _patient;
 		
 
@@ -26,8 +34,6 @@ namespace MedicalQueue_Team2
 		//	set { _head = value; }
 		//      }
 
-		// Canvas : The queue will enqueue on demand by menu-driven  user input,
-		// and will dequeue based on the highest prioity patient in the queue.
 
 		// Simple method to check and see if there is another element in the list.
 		public bool Peek()

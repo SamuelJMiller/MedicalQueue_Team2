@@ -1,4 +1,6 @@
 ﻿/* --
+   MedicalQueue_Team2
+
  * Assignment:
  *     Main will contain a menu to allow for the queuing, dequeuing and listing the queue by accessing methods of the ERQueue.
  *    Specifically, there should be at least three menu behaviors:
@@ -12,6 +14,7 @@
 Done:
    Console output for Main Menu
    Patient Class
+   AP:  12/2 - setup class with test data & menu option to load it
 
 ToDo:
    ERQueue:  
@@ -53,7 +56,6 @@ namespace MedicalQueue_Team2
         }
 
       ERQueue ourEQ = new ERQueue();
-      private int currentCount = 0;
 
       static void Main(string[] args)
         {
@@ -62,118 +64,77 @@ namespace MedicalQueue_Team2
          string User_Input;
          ERQueue ourEQ = new ERQueue();
 
+            // Menu Loop
             do
             {
             Console.Write("(A)dd patient " +
-            "(P)rocess Current Patient " +
-            "(L)ist All in Queue " +
-            "(Q)uit\n" + "load (T)est data\n");
-                User_Input = Console.ReadLine().ToUpper();
+               "(P)rocess Current Patient " +
+               "(L)ist All in Queue " +
+               "(Q)uit\n" + 
+               "load (T)est data\n");
+            User_Input = Console.ReadLine().ToUpper();
+            
+            switch (User_Input)
+            {
+            case "A":
+               string first = string.Empty;
+               string last = string.Empty;
+               int priority = 0;
 
-                switch (User_Input)
-                {
-                    case "A":
-                        string first = string.Empty;
-                        string last = string.Empty;
-                        int priority = 0;
+               wr("Enter patient first name:");
 
-                        wr("Enter patient first name:");
+               first = Console.ReadLine();
+               wr(); // New lines for prettiness
+                  wr("Enter patient last name:");
 
-                        first = Console.ReadLine();
+               last = Console.ReadLine();
 
-                        wr(); // New lines for prettiness
-                        wr("Enter patient last name:");
+               wr();
+               wr("Enter patient priority:");
 
-                        last = Console.ReadLine();
+               priority = Int32.Parse(Console.ReadLine()); // Assuming correct input :)
 
-                        wr();
-                        wr("Enter patient priority:");
+               Patient newPatient = new Patient(first, last, priority);
 
-                        priority = Int32.Parse(Console.ReadLine()); // Assuming correct input :)
+               wr();
+               wr("Added patient " + first + ", there are now " + ourEQ.Enqueue(newPatient) + " patient(s) in the queue.");
+               wr();
+               break;
 
-                        Patient newPatient = new Patient(first, last, priority);
-                        // AP - Testing Enqueue
-                        //ourEQ.Enqueue(new Patient(first, last, priority));
+            case "L":
+               Console.Write("\nPress any key to continue...");
+               Console.ReadKey();
+               Console.Clear();
+               Console.WriteLine("debug:");
+               Console.WriteLine(ourEQ.ToString()); // I only commented this out to test my Dequeue method - Jordan
+               break;
 
-                        wr();
-                        wr("Added patient " + first + ", there are now " + ourEQ.Enqueue(newPatient) + " patient(s) in the queue.");
-                        wr();
+            case "P":
+               Console.Write("\nPress any key to continue...");
+               Console.ReadKey();
+               Console.Clear();
+               // Console writing line to see the first names for each person to verify the Dequeue is working properly. -Jordan
+               Console.WriteLine(ourEQ.Dequeue().getFirst());
+               break;
 
-                     //Console.Write("\nPress any key to continue...");
+            case "Q":
+               Console.Clear();
+               Console.Write("Program closed");
+               IsRunning = false;
+               break;
+                  
+            case "T":      // Load fake data
+               Console.Clear();
+               ourEQ.loadData();
+               Console.Write("Data Loaded For Testing \n");
+               break;
 
-                     //Console.ReadKey();
-                     //Console.Clear();
-
-                     //   // Adding Patient 1 for Dequeue Test; -Jordan
-                     //   string first = new string("Mary");
-                     //   string last = new string("Smith");
-                     //   int priority = 0;
-                     //   Patient patient = new Patient(first, last, priority);
-                     //   Console.WriteLine(ourEQ.Enqueue(patient));
-
-                     //   // Adding Patient 2 for Dequeue Test; - Jordan
-                     //   first = "Jordan";
-                     //   last = "Martin";
-                     //   patient = new Patient(first, last, priority);
-                     //   Console.WriteLine(ourEQ.Enqueue(patient));
-                     //   // addPatient();
-                        break;
-
-                    case "P":
-                        Console.Write("\nPress any key to continue...");
-                        Console.ReadKey();
-                        Console.Clear();
-
-                        // Console writing line to see the first names for each person to verify the Dequeue is working properly. -Jordan
-
-                        Console.WriteLine(ourEQ.Dequeue().getFirst());
-                  // processPatient();
-                        break;
-
-                    case "L":
-                        Console.Write("\nPress any key to continue...");
-                        Console.ReadKey();
-                        Console.Clear();
-                     Console.WriteLine("debug:");
-                        Console.WriteLine(ourEQ.ToString()); // I only commented this out to test my Dequeue method - Jordan
-                  // listL();
-                  break;
-
-                    case "Q":
-                        Console.Clear();
-                        Console.Write("Program closed");
-                        IsRunning = false;
-                        break;
-
-               case "T":      // Load fake data
-                  Console.Clear();
-                  ourEQ.loadData();
-                  Console.Write("Data Loaded For Testing \n");
-                  break;
-
-               default:
-                        Console.Clear();
-                        Console.Write("ERROR\n");
-                        break;
-                }
-
+            default:
+               Console.Clear();
+               Console.Write("ERROR\n");
+               break;
+            }
             } while (IsRunning == true);
         }
-
-// TODO:  prompt for patient info
-// Commented out only temp to see it compile and test my dequeue - Jordan M      
-        //public int addPatient()
-      //{//returns number of patients in the queue after adding
-
-      //   string first = new string("Mary");
-      //   string last = new string("Smith");
-      //   int priority = 0;
-
-      //   Patient patient = new Patient(first, last, priority);
-
-      //   // Update this
-
-      //}
-
       }
    }

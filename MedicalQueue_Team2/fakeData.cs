@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*  
+ *  MedicalQueue_Team2
+ *  ERQueue - Test Data
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +20,5 @@ namespace MedicalQueue_Team2
          ourEQ.Enqueue(new Patient("Jordan", "Martin", 5));
          ourEQ.Enqueue(new Patient("Andrea", "Powell", 3));
       }
-
    }
 }

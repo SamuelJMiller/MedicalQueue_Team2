@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*--
+ * MedicalQueue_Team2
+ * ERQueue - Node Class
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +13,6 @@ namespace MedicalQueue_Team2
 {
    class Node
    {
-
         private Patient _data;
         private Node _next;
 
