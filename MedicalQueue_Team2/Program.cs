@@ -73,7 +73,29 @@ namespace MedicalQueue_Team2
                 switch (User_Input)
                 {
                     case "A":
-                        wr("in add case!");
+                        string first = string.Empty;
+                        string last = string.Empty;
+                        int priority = 0;
+
+                        wr("Enter patient first name:");
+
+                        first = Console.ReadLine();
+
+                        wr(); // New lines for prettiness
+                        wr("Enter patient last name:");
+
+                        last = Console.ReadLine();
+
+                        wr();
+                        wr("Enter patient priority:");
+
+                        priority = Int32.Parse(Console.ReadLine()); // Assuming correct input :)
+
+                        Patient newPatient = new Patient(first, last, priority);
+
+                        wr();
+                        wr("Added patient " + first + ", there are now " + ourEQ.Enqueue(newPatient) + " patient(s) in the queue.");
+                        wr();
 
                      //Console.Write("\nPress any key to continue...");
 
