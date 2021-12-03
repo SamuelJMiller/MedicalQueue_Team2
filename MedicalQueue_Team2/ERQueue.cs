@@ -135,7 +135,7 @@ namespace MedicalQueue_Team2
 		public override string ToString()
 		{
 			_current = _head;
-			String strReturn = new string("");
+			String strReturn = new string("No patients in queue.\n");
 
 			if (_head == null) { return strReturn; };
 
@@ -144,9 +144,7 @@ namespace MedicalQueue_Team2
 			if (_head.Next == null) { return strReturn; };
 			_current = _head.Next;
 
-			strReturn = strReturn + "\n" + _current.ToString();
-
-			while (_current.Next != null)
+			while (_current != null)
 			{
 				strReturn = strReturn + "\n" + _current.grabData.ToString();
 				_current = _current.Next;

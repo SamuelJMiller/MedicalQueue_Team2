@@ -67,7 +67,7 @@ namespace MedicalQueue_Team2
             Console.Write("(A)dd patient " +
                "(P)rocess Current Patient " +
                "(L)ist All in Queue " +
-               "(Q)uit\n" + 
+               "(Q)uit " + 
                "load (T)est data\n");
             
                 
@@ -115,8 +115,14 @@ namespace MedicalQueue_Team2
                Console.Clear();
                   // Console writing line to see the first names for each person to verify the Dequeue is working properly. -Jordan
                   // AP - update when return ToString output fixed
+               if (ourEQ.Peek() == true)
+               {
                   Console.WriteLine(ourEQ.Dequeue().getFirst() + "\n");
-                  break;
+               } else
+               {
+                  Console.WriteLine("No patients in queue.\n");
+               }
+               break;
 
             case "Q":
                Console.Clear();

@@ -20,15 +20,6 @@ namespace MedicalQueue_Team2
 		public string getLast() { return this.last; }
 		public int    getPriority() { return this.priority; }
 
-		// Do we need this constructor since we never call on it? -Jordan
-
-		//public Patient()
-		//{
-		//	this.first = "";
-		//	this.last = "";
-		//	this.priority = 0;
-		//}
-
 		public Patient(string first, string last, int priority)
 		{
 			this.first = first;
@@ -38,7 +29,7 @@ namespace MedicalQueue_Team2
 
       public override String ToString()
       {
-         return (this.first+ "   " + this.priority.ToString());
+         return (this.first.PadRight(12, ' ') + this.priority.ToString());
       }
 	}
 }
