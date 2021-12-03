@@ -55,26 +55,27 @@ namespace MedicalQueue_Team2
             Console.WriteLine(s);
         }
 
-      ERQueue ourEQ = new ERQueue();
-
-      static void Main(string[] args)
+        // Made main private to keep variables safe . -Jordan
+        private static void Main(string[] args)
         {
-         
-         bool IsRunning = true;
-         string User_Input;
-         ERQueue ourEQ = new ERQueue();
+
+            bool IsRunning = true;
+            ERQueue ourEQ = new ERQueue();
 
             // Menu Loop
-            do
-            {
+        do{
             Console.Write("(A)dd patient " +
                "(P)rocess Current Patient " +
                "(L)ist All in Queue " +
                "(Q)uit\n" + 
                "load (T)est data\n");
-            User_Input = Console.ReadLine().ToUpper();
             
-            switch (User_Input)
+                
+                //User_Input = Console.ReadLine().ToUpper(); -Read comment below
+            
+            // Since we dont have to validate are we okay with inserting the Console ReadLine. To avoid creating temp data that were going to throw away? -Jordan
+
+            switch (Console.ReadLine().ToUpper())
             {
             case "A":
                string first = string.Empty;
@@ -134,7 +135,8 @@ namespace MedicalQueue_Team2
                Console.Write("ERROR\n");
                break;
             }
-            } while (IsRunning == true);
+        } while (IsRunning == true);
+        
         }
       }
    }
