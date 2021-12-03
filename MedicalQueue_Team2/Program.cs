@@ -68,7 +68,7 @@ namespace MedicalQueue_Team2
                "(P)rocess Current Patient " +
                "(L)ist All in Queue " +
                "(Q)uit " + 
-               "load (T)est data\n");
+               "(T)est data\n");
             
                 
                 //User_Input = Console.ReadLine().ToUpper(); -Read comment below
