@@ -18,8 +18,7 @@ namespace MedicalQueue_Team2
 
 		public string getFirst() { return this.first; }
 		public string getLast() { return this.last; }
-		public int    getPriority() { return this.priority; }
-
+		public int getPriority() { return this.priority; }
 		public Patient(string first, string last, int priority)
 		{
 			this.first = first;
@@ -27,9 +26,9 @@ namespace MedicalQueue_Team2
 			this.priority = priority;
 		}
 
-      public override String ToString()
-      {
-         return (this.first.PadRight(12, ' ') + this.priority.ToString());
-      }
+		public override String ToString()
+		{
+			return (this.first.PadRight(12, ' ') + this.priority.ToString());
+		}
 	}
 }
