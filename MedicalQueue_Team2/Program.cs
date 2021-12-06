@@ -44,12 +44,7 @@ namespace MedicalQueue_Team2
 	class Program
 	{
 		// Some methods to make our lives easier :)
-		public static void wr()
-		{
-			Console.WriteLine();
-		}
-
-		public static void wr(string s)
+		public static void wr(string s = "")
 		{
 			Console.WriteLine(s);
 		}
@@ -96,25 +91,21 @@ namespace MedicalQueue_Team2
 				break;
 
 			case "L":
-				Console.Write("Press any key to continue...");
-				Console.ReadKey();
 				Console.Clear();
-				Console.WriteLine(ourEQ.ToString()); // I only commented this out to test my Dequeue method - Jordan
+				wr(ourEQ.ToString()); // I only commented this out to test my Dequeue method - Jordan
 				break;
 
 			case "P":
-				Console.Write("Press any key to continue...");
-				Console.ReadKey();
 				Console.Clear();
 				// Console writing line to see the first names for each person to verify the Dequeue is working properly. -Jordan
 				// AP - update when return ToString output fixed
-				if (ourEQ.Peek() == true) { Console.WriteLine(ourEQ.Dequeue().getFirst() + "\n"); }
-				else { Console.WriteLine("No patients in queue.\n"); }
+				if (ourEQ.Peek() == true) { wr(ourEQ.Dequeue().getFirst() + "\n"); }
+				else { wr("No patients in queue.\n"); }
 				break;
 
 			case "Q":
 				Console.Clear();
-				Console.Write("Program closed");
+				wr("Program closed");
 				IsRunning = false;
 				break;
 
