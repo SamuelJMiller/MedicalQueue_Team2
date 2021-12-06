@@ -55,72 +55,72 @@ namespace MedicalQueue_Team2
 			bool IsRunning = true;
 			ERQueue ourEQ = new ERQueue();
 			// Menu Loop
-		do {
-			Console.Write("(A)dd patient " +
-				"(P)rocess Current Patient " +
-				"(L)ist All in Queue " +
-				"(Q)uit " +
-				"(T)est data\n");
-				//User_Input = Console.ReadLine().ToUpper(); -Read comment below
-			// Since we dont have to validate are we okay with inserting the Console ReadLine. To avoid creating temp data that were going to throw away? -Jordan
+			do {
+				Console.Write("(A)dd patient " +
+					"(P)rocess Current Patient " +
+					"(L)ist All in Queue " +
+					"(Q)uit " +
+					"(T)est data\n");
+					//User_Input = Console.ReadLine().ToUpper(); -Read comment below
+				// Since we dont have to validate are we okay with inserting the Console ReadLine. To avoid creating temp data that were going to throw away? -Jordan
 
-			switch (Console.ReadLine().ToUpper()) {
-			case "A":
-				string first = string.Empty;
-				string last = string.Empty;
-				int priority = 0;
+				switch (Console.ReadLine().ToUpper()) {
+				case "A":
+					string first = string.Empty;
+					string last = string.Empty;
+					int priority = 0;
 
-				wr("Enter patient first name:");
+					wr("Enter patient first name:");
 
-				first = Console.ReadLine();
-				wr(); // New lines for prettiness
-				wr("Enter patient last name:");
+					first = Console.ReadLine();
+					wr(); // New lines for prettiness
+					wr("Enter patient last name:");
 
-				last = Console.ReadLine();
+					last = Console.ReadLine();
 
-				wr();
-				wr("Enter patient priority:");
+					wr();
+					wr("Enter patient priority:");
 
-				priority = Int32.Parse(Console.ReadLine()); // Assuming correct input :)
+					priority = Int32.Parse(Console.ReadLine()); // Assuming correct input :)
 
-				Patient newPatient = new Patient(first, last, priority);
+					Patient newPatient = new Patient(first, last, priority);
 
-				wr();
-				wr("Added patient " + first + ", there are now " + ourEQ.Enqueue(newPatient) + " patient(s) in the queue.");
-				wr();
-				break;
+					wr();
+					wr("Added patient " + first + ", there are now " + ourEQ.Enqueue(newPatient) + " patient(s) in the queue.");
+					wr();
+					break;
 
-			case "L":
-				Console.Clear();
-				wr(ourEQ.ToString()); // I only commented this out to test my Dequeue method - Jordan
-				break;
+				case "L":
+					Console.Clear();
+					wr(ourEQ.ToString()); // I only commented this out to test my Dequeue method - Jordan
+					break;
 
-			case "P":
-				Console.Clear();
-				// Console writing line to see the first names for each person to verify the Dequeue is working properly. -Jordan
-				// AP - update when return ToString output fixed
-				if (ourEQ.Peek() == true) { wr(ourEQ.Dequeue().getFirst() + "\n"); }
-				else { wr("No patients in queue.\n"); }
-				break;
+				case "P":
+					Console.Clear();
+					// Console writing line to see the first names for each person to verify the Dequeue is working properly. -Jordan
+					// AP - update when return ToString output fixed
+					if (ourEQ.Peek() == true) { wr(ourEQ.Dequeue().getFirst() + "\n"); }
+					else { wr("No patients in queue.\n"); }
+					break;
 
-			case "Q":
-				Console.Clear();
-				wr("Program closed");
-				IsRunning = false;
-				break;
+				case "Q":
+					Console.Clear();
+					wr("Program closed");
+					IsRunning = false;
+					break;
 
-			case "T":      // Load fake data
-				Console.Clear();
-				ourEQ.loadData();
-				Console.Write("Data Loaded For Testing \n");
-				break;
+				case "T":      // Load fake data
+					Console.Clear();
+					ourEQ.loadData();
+					Console.Write("Data Loaded For Testing \n");
+					break;
 
-			default:
-				Console.Clear();
-				Console.Write("ERROR\n");
-				break;
-			}
-		} while (IsRunning == true);
+				default:
+					Console.Clear();
+					Console.Write("ERROR\n");
+					break;
+				}
+			} while (IsRunning == true);
 		}
 	}
 }
