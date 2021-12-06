@@ -56,11 +56,11 @@ namespace MedicalQueue_Team2
 			ERQueue ourEQ = new ERQueue();
 			// Menu Loop
 			do {
-				Console.Write("(A)dd patient " +
+				wr("(A)dd patient " +
 					"(P)rocess Current Patient " +
 					"(L)ist All in Queue " +
 					"(Q)uit " +
-					"(T)est data\n");
+					"(T)est data");
 					//User_Input = Console.ReadLine().ToUpper(); -Read comment below
 				// Since we dont have to validate are we okay with inserting the Console ReadLine. To avoid creating temp data that were going to throw away? -Jordan
 
@@ -99,8 +99,8 @@ namespace MedicalQueue_Team2
 					Console.Clear();
 					// Console writing line to see the first names for each person to verify the Dequeue is working properly. -Jordan
 					// AP - update when return ToString output fixed
-					if (ourEQ.Peek() == true) { wr(ourEQ.Dequeue().getFirst() + "\n"); }
-					else { wr("No patients in queue.\n"); }
+					if (ourEQ.Peek() == true) { wr(ourEQ.Dequeue().getFirst()); }
+					else { wr("No patients in queue."); }
 					break;
 
 				case "Q":
@@ -112,12 +112,12 @@ namespace MedicalQueue_Team2
 				case "T":      // Load fake data
 					Console.Clear();
 					ourEQ.loadData();
-					Console.Write("Data Loaded For Testing \n");
+					wr("Data Loaded For Testing");
 					break;
 
 				default:
 					Console.Clear();
-					Console.Write("ERROR\n");
+					wr("ERROR");
 					break;
 				}
 			} while (IsRunning == true);
