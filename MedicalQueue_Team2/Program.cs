@@ -106,7 +106,7 @@ namespace MedicalQueue_Team2
                Console.Write("Press any key to continue...");
                Console.ReadKey();
                Console.Clear();
-               Console.WriteLine(ourEQ.ToString()); // I only commented this out to test my Dequeue method - Jordan
+               Console.WriteLine(ourEQ.List()); // I only commented this out to test my Dequeue method - Jordan
                break;
 
             case "P":

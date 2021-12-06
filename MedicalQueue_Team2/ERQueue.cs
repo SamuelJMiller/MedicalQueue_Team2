@@ -132,6 +132,11 @@ namespace MedicalQueue_Team2
           }
         }
 
+		public string List()
+        {
+			return this.ToString();
+        }
+
 		public override string ToString()
 		{
 			_current = _head;
