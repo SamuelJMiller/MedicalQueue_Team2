@@ -92,7 +92,7 @@ namespace MedicalQueue_Team2
 
 				case "L":
 					Console.Clear();
-					wr(ourEQ.ToString()); // I only commented this out to test my Dequeue method - Jordan
+					wr(ourEQ.List()); // I only commented this out to test my Dequeue method - Jordan
 					break;
 
 				case "P":
